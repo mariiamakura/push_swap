@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+         #
+#    By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:28:31 by mparasku          #+#    #+#              #
-#    Updated: 2023/03/15 17:08:18 by mparasku         ###   ########.fr        #
+#    Updated: 2023/03/17 15:55:30 by mishamakura      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ all:$(NAME)
 
 $(NAME):
 	@cd printf && make all
-	@cc -Wall -Wextra -Werror push_swap.c printf/libftprintf.a -o $(NAME)
+	@cc -Wall -Wextra -Werror push_swap.c arg_checking.c printf/libftprintf.a -o $(NAME)
 	@echo "$(COLOUR_GREEN)push_swap is done$(COLOUR_END)"
 	
 clean:
