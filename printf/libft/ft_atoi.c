@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:33:12 by mparasku          #+#    #+#             */
-/*   Updated: 2022/12/21 16:38:25 by mparasku         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:08:18 by mishamakura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	int	neg;
-	int	number;
+	long long	number;
 	int	i;
 
 	neg = 1;

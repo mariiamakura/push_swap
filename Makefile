@@ -20,7 +20,7 @@ all:$(NAME)
 
 $(NAME):
 	@cd printf && make all
-	@cc -Wall -Wextra -Werror push_swap.c arg_checking.c printf/libftprintf.a -o $(NAME)
+	@cc -Wall -Wextra -Werror *.c printf/libftprintf.a -o $(NAME)
 	@echo "$(COLOUR_GREEN)push_swap is done$(COLOUR_END)"
 	
 clean:

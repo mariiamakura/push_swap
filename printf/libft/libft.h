@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:29:00 by mparasku          #+#    #+#             */
-/*   Updated: 2022/12/27 16:35:12 by mparasku         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:08:27 by mishamakura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 
 //stdlib.h
-int		ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 //additional 
