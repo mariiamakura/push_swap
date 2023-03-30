@@ -18,7 +18,7 @@ void error_print(void)
 	exit(1);
 }
 
-void	arr_free(char **arr)
+void	arr_free(char **arr, int flag)
 {
 	int	i;
 
@@ -29,7 +29,8 @@ void	arr_free(char **arr)
 		i++;
 	}
 	free(arr);
-	error_print();
+    if (flag)
+	    error_print();
 }
 
 char	**get_oneline(char **av)
@@ -87,14 +88,14 @@ void	error_check(char **arr)
 	{
 		if (i == 0)
 			if (num_errors(arr[i]) == 1)
-				arr_free(arr);
+				arr_free(arr, 1);
 		j = i + 1;
 		while (arr[j])
 		{
 			if (num_errors(arr[j]) == 1)
-				arr_free(arr);
+				arr_free(arr, 1);
 			if (ft_atoi(arr[i]) == ft_atoi(arr[j]))
-				arr_free(arr);
+				arr_free(arr, 1);
 			j++;
 		}
 		i++;

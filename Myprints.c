@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-/* void	print_2d_array(char **arr)
+ void	print_2d_array(char **arr)
 {
 	int	i;
 
@@ -11,7 +11,7 @@
             i++; // increment the counter
         }
     printf("\n");
-} */
+}
 
 void print_struct(t_all_numbers *all_numbers)
 {

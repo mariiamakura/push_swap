@@ -21,17 +21,26 @@ t_all_numbers *arg_checker(char **ag)
 	error_check(array);
 	all_numbers = init_struct(array);
     create_arrays(all_numbers, array);
-    print_struct(all_numbers);
-	return(0);
+    arr_free(array, 0);
+    //printf("array freed\n");
+    //print_struct(all_numbers); //DELETE
+	return(all_numbers);
+}
+
+void sorting(t_all_numbers *all_numbers)
+{
+    if(sort_ok(all_numbers))
+        free_stack(all_numbers);
+
 }
 
 int main(int ac, char **ag)
 {
 	t_all_numbers	*all_numbers;
-	
 	if(ac > 1)
 	{
 		all_numbers = arg_checker(ag);
+        sorting(all_numbers);
 	}
 	return(0);
 }

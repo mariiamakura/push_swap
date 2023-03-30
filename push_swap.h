@@ -41,9 +41,12 @@ typedef struct	s_all_numbers
 	int				min_index;//index of min number
 }	t_all_numbers;
 
+//parsing
+t_all_numbers *arg_checker(char **ag);
 char	**get_oneline(char **av);
 void	error_check(char **array);
-void	arr_free(char **arr);
+void	arr_free(char **arr, int flag);
+void    free_stack(t_all_numbers *all_numbers);
 int		num_errors(char	*arr);
 t_all_numbers	*init_struct(char **arr);
 void    create_arrays(t_all_numbers *all_numbers, char **arr);
@@ -51,7 +54,30 @@ t_one_number *new_node(int num, int index);
 void bubble_sort(t_all_numbers *all_numbers, int *sorted, int *not_sorted, int size);
 void    create_stack_a(t_all_numbers *all_numbers, int *sorted, int *not_sorted, int size);
 void add_struct_back(t_one_number **stack_a, t_one_number *new);
-//for checking
+
+//sorting
+void sorting(t_all_numbers *all_numbers);
+int sort_ok(t_all_numbers *all_numbers);
+//push cmds
+void push_a(t_all_numbers *all_numbers);
+void push_b(t_all_numbers *all_numbers);
+void    pa(t_all_numbers *all_numbers, int flag);
+void    pb(t_all_numbers *all_numbers, int flag);
+//reverse cmds
+void rra(t_all_numbers *all_numbers, int flag);
+void    rrb(t_all_numbers *all_numbers, int flag);
+void rrr(t_all_numbers *all_numbers, int flag);
+//rotate
+void ra(t_all_numbers *all_numbers, int flag);
+void rb(t_all_numbers *all_numbers, int flag);
+void rr(t_all_numbers *all_numbers, int flag);
+//swap
+void sa(t_all_numbers *all_numbers, int flag);
+void sb(t_all_numbers *all_numbers, int flag);
+void ss(t_all_numbers *all_numbers, int flag);
+
+
+//for checking DELETE WHEN SUBMIT
 void	print_2d_array(char **array);
 void print_struct(t_all_numbers *all_numbers);
 

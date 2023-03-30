@@ -46,7 +46,7 @@ void    bubble_sort(t_all_numbers *all_numbers, int *sorted, int *not_sorted, in
         }
         i++;
     }
-    printf("Array sorted!\n");
+    //printf("Bubble sort is done\n"); //DELETE
     create_stack_a(all_numbers, sorted, not_sorted, size);
 }
 
@@ -73,6 +73,28 @@ void    create_stack_a(t_all_numbers *all_numbers, int *sorted, int *not_sorted,
     }
     free(sorted);
     free(not_sorted);
+    //printf("stacks created");
 }
 
-//free_stack function
+void    free_stack(t_all_numbers *all_numbers)
+{
+    t_one_number *temp;
+
+    while (all_numbers->size_a--)
+    {
+        temp = all_numbers->stack_a->next;
+        free(all_numbers->stack_a);
+        all_numbers->stack_a = NULL;
+        all_numbers->stack_a = temp;
+    }
+    while (all_numbers->size_b--)
+    {
+        temp = all_numbers->stack_b->next;
+        free(all_numbers->stack_b);
+        all_numbers->stack_b = NULL;
+        all_numbers->stack_b = temp;
+    }
+    free(all_numbers);
+    //printf("stacks are freed\n");
+    exit(0);
+}

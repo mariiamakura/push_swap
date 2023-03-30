@@ -42,6 +42,7 @@ t_one_number *new_node(int num, int index)
     list->flag = 0;
     list->next = NULL;
     list->previous = NULL;
+    //printf("new node is done\n");
     return (list);
 }
 
@@ -70,4 +71,5 @@ void add_struct_back(t_one_number **stack_a, t_one_number *new_list)
     }
     else
         *stack_a = new_list;
+    //printf("stack b and a created\n");
 }
