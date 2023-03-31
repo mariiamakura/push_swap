@@ -31,6 +31,11 @@ void sorting(t_all_numbers *all_numbers)
 {
     if(sort_ok(all_numbers))
         free_stack(all_numbers);
+    if (all_numbers->size_a < 6)
+    {
+        five_sort(all_numbers);
+        free_stack(all_numbers);
+    }
 
 }
 

@@ -37,7 +37,7 @@ typedef struct	s_all_numbers
 	int				size_b;
 	int				min;
 	int				max;
-	int				middle;//middle of numbers index
+	int				median;//middle of numbers index
 	int				min_index;//index of min number
 }	t_all_numbers;
 
@@ -75,6 +75,15 @@ void rr(t_all_numbers *all_numbers, int flag);
 void sa(t_all_numbers *all_numbers, int flag);
 void sb(t_all_numbers *all_numbers, int flag);
 void ss(t_all_numbers *all_numbers, int flag);
+//median
+void a_median(t_all_numbers *all_numbers);
+void b_median(t_all_numbers *all_numbers);
+//sort_numbers
+//small
+void    three_sort_a(t_all_numbers *all_numbers);
+void	three_sort_b(t_all_numbers *all_numbers);
+void    five_sort(t_all_numbers *all_numbers);
+int where_is_min(t_all_numbers *all_numbers);
 
 
 //for checking DELETE WHEN SUBMIT
