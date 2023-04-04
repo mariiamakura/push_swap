@@ -27,7 +27,7 @@ t_all_numbers	*init_struct(char **arr)
     all_numbers->stack_b = NULL;
     all_numbers->size_a = i;
     all_numbers->size_b = 0;
-    all_numbers->min_index = 1;
+    all_numbers->min_index_a = 1;
     return(all_numbers);
 }
 

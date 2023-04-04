@@ -38,7 +38,7 @@ typedef struct	s_all_numbers
 	int				min;
 	int				max;
 	int				median;//middle of numbers index
-	int				min_index;//index of min number
+	int				min_index_a;
 }	t_all_numbers;
 
 //parsing
@@ -78,12 +78,29 @@ void ss(t_all_numbers *all_numbers, int flag);
 //median
 void a_median(t_all_numbers *all_numbers);
 void b_median(t_all_numbers *all_numbers);
+void first_move_to_stack_b(t_all_numbers *all_numbers);
+void move_generation_down(t_all_numbers *all_numbers);
+int where_is_min(t_all_numbers *all_numbers);
+
+
 //sort_numbers
 //small
 void    three_sort_a(t_all_numbers *all_numbers);
 void	three_sort_b(t_all_numbers *all_numbers);
 void    five_sort(t_all_numbers *all_numbers);
-int where_is_min(t_all_numbers *all_numbers);
+
+//middle
+void five_sort_b(t_all_numbers *all_numbers);
+void sort_three_b_to_a(t_all_numbers *all_numbers);
+void    generation_order(t_all_numbers *all_numbers, int flag);
+void five_sort_a(t_all_numbers *all_numbers);
+void generation_order_2(t_all_numbers *all_numbers, int flag);
+
+//big
+void push_down(t_all_numbers *all_numbers);
+void move_a_to_b(t_all_numbers *all_numbers);
+
+
 
 
 //for checking DELETE WHEN SUBMIT

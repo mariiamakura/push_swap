@@ -65,33 +65,6 @@ void    three_sort_a(t_all_numbers *all_numbers)
         sa(all_numbers, 1);
 }
 
-int where_is_min(t_all_numbers *all_numbers)
-{
-    int i;
-    int j;
-    t_one_number *temp;
-
-    temp = all_numbers->stack_a;
-    i = 0;
-    while (i++)
-    {
-        if (temp->index == all_numbers->min)
-            break ;
-        temp = temp->next;
-    }
-    temp = all_numbers->stack_a;
-    j = 0;
-    while(j++)
-    {
-        if (temp->index == all_numbers->min)
-            break ;
-        temp = temp->previous;
-    }
-    if (j >= i)
-        return (1);
-    return (0);
-}
-
 void    five_sort(t_all_numbers *all_numbers)
 {
     while (all_numbers->size_a > 3)

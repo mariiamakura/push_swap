@@ -20,7 +20,7 @@ all:$(NAME)
 
 $(NAME):
 	@cd printf && make all
-	@cc -Wall -Wextra -Werror *.c printf/libftprintf.a -o $(NAME)
+	@cc -g -Wall -Wextra -Werror *.c printf/libftprintf.a -o $(NAME)
 	@echo "$(COLOUR_GREEN)push_swap is done$(COLOUR_END)"
 	
 clean:
@@ -34,4 +34,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+run: all
+	./$(NAME) $(ARGS)
+
+.PHONY: all clean fclean re

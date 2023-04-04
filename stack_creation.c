@@ -96,5 +96,4 @@ void    free_stack(t_all_numbers *all_numbers)
     }
     free(all_numbers);
     //printf("stacks are freed\n");
-    exit(0);
 }
