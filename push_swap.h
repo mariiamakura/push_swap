@@ -75,6 +75,7 @@ void rr(t_all_numbers *all_numbers, int flag);
 void sa(t_all_numbers *all_numbers, int flag);
 void sb(t_all_numbers *all_numbers, int flag);
 void ss(t_all_numbers *all_numbers, int flag);
+
 //median
 void a_median(t_all_numbers *all_numbers);
 void b_median(t_all_numbers *all_numbers);
@@ -99,7 +100,9 @@ void generation_order_2(t_all_numbers *all_numbers, int flag);
 //big
 void push_down(t_all_numbers *all_numbers);
 void move_a_to_b(t_all_numbers *all_numbers);
-
+void sort_big(t_all_numbers *all_numbers);
+int search_min(t_all_numbers *all_numbers);
+void search_min_2(t_all_numbers *all_numbers);
 
 
 

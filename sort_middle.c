@@ -17,7 +17,7 @@ void    generation_order(t_all_numbers *all_numbers, int flag)
             push_down(all_numbers);
     }
     while (all_numbers->stack_a->flag == flag && flag != -1 &&
-    !all_numbers->stack_a->index + 1 == all_numbers->stack_a->previous->index)
+    all_numbers->stack_a->index + 1 == all_numbers->stack_a->previous->index)
         push_down(all_numbers);
 }
 
@@ -36,9 +36,9 @@ void generation_order_2(t_all_numbers *all_numbers, int flag)
         }
         else
             push_down(all_numbers);
-        while (all_numbers->stack_a->flag == flag && flag != -1)
-            push_down(all_numbers);
     }
+    while (all_numbers->stack_a->flag == flag && flag != -1)
+        push_down(all_numbers);
 }
 
 

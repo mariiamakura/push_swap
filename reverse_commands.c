@@ -19,7 +19,7 @@ void    rrb(t_all_numbers *all_numbers, int flag)
     if (all_numbers->size_b > 1)
         all_numbers->stack_b = all_numbers->stack_b->previous;
     if (flag)
-        write(1, "rrb\b", 4);
+        write(1, "rrb\n", 4);
 }
 
 void rrr(t_all_numbers *all_numbers, int flag)

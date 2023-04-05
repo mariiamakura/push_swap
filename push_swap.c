@@ -32,21 +32,24 @@ void sorting(t_all_numbers *all_numbers)
     if (sort_ok(all_numbers))
         return ;
     if (all_numbers->size_a < 6)
+    {
         five_sort(all_numbers);
-    first_move_to_stack_b(all_numbers); //in mediana file
+        free_stack(all_numbers);
+    }
+    first_move_to_stack_b(all_numbers); //move half of numbers to stack_b/ median file
     while (!(sort_ok(all_numbers) && all_numbers->size_b == 0))
     {
         if (all_numbers->size_b < 6)
             five_sort_b(all_numbers);
-        //else if
+        else if (all_numbers->size_b >= 6)
+            sort_big(all_numbers);
         if (all_numbers->size_b == 0)
         {
             five_sort_a(all_numbers);
             move_a_to_b(all_numbers);
-            break ; //without break doesnt work why?
         }
     }
-    print_struct(all_numbers);
+    //print_struct(all_numbers);
 }
 
 int main(int ac, char **ag)
