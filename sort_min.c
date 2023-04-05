@@ -19,7 +19,7 @@ int sort_ok(t_all_numbers *all_numbers)
     return(1);
 }
 
-void	three_sort_b(t_all_numbers *all_numbers)
+/*void	three_sort_b(t_all_numbers *all_numbers)
 {
     int	a;
     int	b;
@@ -44,7 +44,7 @@ void	three_sort_b(t_all_numbers *all_numbers)
         pa(all_numbers, 1);
         ra(all_numbers, 1);
     }
-}
+}*/
 
 void    three_sort_a(t_all_numbers *all_numbers)
 {

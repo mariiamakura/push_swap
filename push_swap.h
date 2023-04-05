@@ -87,7 +87,7 @@ int where_is_min(t_all_numbers *all_numbers);
 //sort_numbers
 //small
 void    three_sort_a(t_all_numbers *all_numbers);
-void	three_sort_b(t_all_numbers *all_numbers);
+//void	three_sort_b(t_all_numbers *all_numbers);
 void    five_sort(t_all_numbers *all_numbers);
 
 //middle

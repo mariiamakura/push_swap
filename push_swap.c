@@ -63,3 +63,7 @@ int main(int ac, char **ag)
 	}
 	return(0);
 }
+
+//test case 71 KO
+//test case 119 KO
+//check 5 arguments algorithm

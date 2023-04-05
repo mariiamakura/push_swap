@@ -100,7 +100,7 @@ int where_is_min(t_all_numbers *all_numbers)
 
     temp = all_numbers->stack_a;
     i = 0;
-    while (i++)
+    while (++i)
     {
         if (temp->index == all_numbers->min)
             break ;
@@ -108,7 +108,7 @@ int where_is_min(t_all_numbers *all_numbers)
     }
     temp = all_numbers->stack_a;
     j = 0;
-    while(j++)
+    while(++j)
     {
         if (temp->index == all_numbers->min)
             break ;
