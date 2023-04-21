@@ -3,67 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:53:05 by mparasku          #+#    #+#             */
-/*   Updated: 2023/03/21 17:43:35 by mishamakura      ###   ########.fr       */
+/*   Updated: 2023/04/14 19:57:01 by mparasku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_all_numbers *arg_checker(char **ag)
+t_all	*arg_checker(char **ag)
 {
-	t_all_numbers	*all_numbers;
+	t_all	*all;
 	char	**array;
 
 	array = get_oneline(ag);
 	error_check(array);
-	all_numbers = init_struct(array);
-    create_arrays(all_numbers, array);
-    arr_free(array, 0);
-    //printf("array freed\n");
-    //print_struct(all_numbers); //DELETE
-	return(all_numbers);
+	all = init_struct(array);
+	create_arrays(all, array);
+	arr_free(array, 0);
+	return (all);
 }
 
-void sorting(t_all_numbers *all_numbers)
+void	sorting(t_all *all)
 {
-    if (sort_ok(all_numbers))
-        return ;
-    if (all_numbers->size_a < 6)
-    {
-        five_sort(all_numbers);
-        free_stack(all_numbers);
-    }
-    first_move_to_stack_b(all_numbers); //move half of numbers to stack_b/ median file
-    while (!(sort_ok(all_numbers) && all_numbers->size_b == 0))
-    {
-        if (all_numbers->size_b < 6)
-            five_sort_b(all_numbers);
-        else if (all_numbers->size_b >= 6)
-            sort_big(all_numbers);
-        if (all_numbers->size_b == 0)
-        {
-            five_sort_a(all_numbers);
-            move_a_to_b(all_numbers);
-        }
-    }
-    //print_struct(all_numbers);
-}
-
-int main(int ac, char **ag)
-{
-	t_all_numbers	*all_numbers;
-	if(ac > 1)
+	if (sort_ok(all))
+		return ;
+	if (all->size_a < 6)
 	{
-		all_numbers = arg_checker(ag);
-        sorting(all_numbers);
-        free_stack(all_numbers);
+		five_sort(all);
+		free_stack(all);
 	}
-	return(0);
+	first_move_to_stack_b(all);
+	while (!(sort_ok(all) && all->size_b == 0))
+	{
+		if (all->size_b < 6)
+			five_sort_b(all);
+		else if (all->size_b >= 6)
+			sort_big(all);
+		if (all->size_b == 0)
+		{
+			five_sort_a(all, 0, 0, 0);
+			move_a_to_b(all);
+		}
+	}
 }
 
-//test case 71 KO
-//test case 119 KO
-//check 5 arguments algorithm
+int	main(int ac, char **ag)
+{
+	t_all	*all;
+
+	if (ac > 1)
+	{
+		all = arg_checker(ag);
+		sorting(all);
+		free_stack(all);
+	}
+	return (0);
+}

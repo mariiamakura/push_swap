@@ -6,7 +6,7 @@
 /*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:51:56 by mparasku          #+#    #+#             */
-/*   Updated: 2023/03/21 17:46:23 by mishamakura      ###   ########.fr       */
+/*   Updated: 2023/04/17 14:23:28 by mishamakura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,94 +20,92 @@
 # include <limits.h>
 
 //struct for a node with 1 number
-typedef struct	s_one_number
+typedef struct s_node
 {
-	int	num;
-	int	index;
-	int	flag; //in which generation is number
-	struct	s_one_number *next;
-	struct	s_one_number *previous;
-}	t_one_number;
+	int				num;
+	int				index;
+	int				flag;
+	struct s_node	*next;
+	struct s_node	*previous;
+}	t_node;
 
-typedef struct	s_all_numbers
+typedef struct s_all
 {
-	t_one_number	*stack_a;
-	t_one_number	*stack_b;
-	int				size_a;
-	int				size_b;
-	int				min;
-	int				max;
-	int				median;//middle of numbers index
-	int				min_index_a;
-}	t_all_numbers;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	int		size_a;
+	int		size_b;
+	int		min;
+	int		max;
+	int		median;
+	int		min_index_a;
+}	t_all;
 
-//parsing
-t_all_numbers *arg_checker(char **ag);
+//push_swap
+t_all	*arg_checker(char **ag);
+void	sorting(t_all *all);
+
+//arg_checking
 char	**get_oneline(char **av);
 void	error_check(char **array);
 void	arr_free(char **arr, int flag);
-void    free_stack(t_all_numbers *all_numbers);
 int		num_errors(char	*arr);
-t_all_numbers	*init_struct(char **arr);
-void    create_arrays(t_all_numbers *all_numbers, char **arr);
-t_one_number *new_node(int num, int index);
-void bubble_sort(t_all_numbers *all_numbers, int *sorted, int *not_sorted, int size);
-void    create_stack_a(t_all_numbers *all_numbers, int *sorted, int *not_sorted, int size);
-void add_struct_back(t_one_number **stack_a, t_one_number *new);
+void	error_print(void);
 
-//sorting
-void sorting(t_all_numbers *all_numbers);
-int sort_ok(t_all_numbers *all_numbers);
+//init_struct
+t_all	*init_struct(char **arr);
+t_node	*new_node(int num, int index);
+void	add_struct_back(t_node **stack_a, t_node *new);
+
+//stack_creation
+void	free_stack(t_all *all);
+void	create_arrays(t_all *all, char **arr);
+void	bubble_sort(t_all *all, int *sorted, int *not_sorted, int size);
+void	create_stack_a(t_all *all, int *sorted, int *not_sorted, int size);
+
 //push cmds
-void push_a(t_all_numbers *all_numbers);
-void push_b(t_all_numbers *all_numbers);
-void    pa(t_all_numbers *all_numbers, int flag);
-void    pb(t_all_numbers *all_numbers, int flag);
+void	push_a(t_all *all);
+void	push_b(t_all *all);
+void	pa(t_all *all, int flag);
+void	pb(t_all *all, int flag);
 //reverse cmds
-void rra(t_all_numbers *all_numbers, int flag);
-void    rrb(t_all_numbers *all_numbers, int flag);
-void rrr(t_all_numbers *all_numbers, int flag);
+void	rra(t_all *all, int flag);
+void	rrb(t_all *all, int flag);
+void	rrr(t_all *all, int flag);
 //rotate
-void ra(t_all_numbers *all_numbers, int flag);
-void rb(t_all_numbers *all_numbers, int flag);
-void rr(t_all_numbers *all_numbers, int flag);
+void	ra(t_all *all, int flag);
+void	rb(t_all *all, int flag);
+void	rr(t_all *all, int flag);
 //swap
-void sa(t_all_numbers *all_numbers, int flag);
-void sb(t_all_numbers *all_numbers, int flag);
-void ss(t_all_numbers *all_numbers, int flag);
+void	sa(t_all *all, int flag);
+void	sb(t_all *all, int flag);
+void	ss(t_all *all, int flag);
 
 //median
-void a_median(t_all_numbers *all_numbers);
-void b_median(t_all_numbers *all_numbers);
-void first_move_to_stack_b(t_all_numbers *all_numbers);
-void move_generation_down(t_all_numbers *all_numbers);
-int where_is_min(t_all_numbers *all_numbers);
-
+void	a_median(t_all *all);
+void	b_median(t_all *all);
+void	first_move_to_stack_b(t_all *all);
+void	move_generation_down(t_all *all);
+int		where_is_min(t_all *all);
 
 //sort_numbers
 //small
-void    three_sort_a(t_all_numbers *all_numbers);
-//void	three_sort_b(t_all_numbers *all_numbers);
-void    five_sort(t_all_numbers *all_numbers);
+void	three_sort_a(t_all *all);
+void	five_sort(t_all *all);
+int		sort_ok(t_all *all);
 
 //middle
-void five_sort_b(t_all_numbers *all_numbers);
-void sort_three_b_to_a(t_all_numbers *all_numbers);
-void    generation_order(t_all_numbers *all_numbers, int flag);
-void five_sort_a(t_all_numbers *all_numbers);
-void generation_order_2(t_all_numbers *all_numbers, int flag);
+void	five_sort_b(t_all *all);
+void	sort_three_b_to_a(t_all *all);
+void	generation_order(t_all *all, int flag);
+void	five_sort_a(t_all *all, int i, int flag, int min);
+void	generation_order_2(t_all *all, int flag);
 
 //big
-void push_down(t_all_numbers *all_numbers);
-void move_a_to_b(t_all_numbers *all_numbers);
-void sort_big(t_all_numbers *all_numbers);
-int search_min(t_all_numbers *all_numbers);
-void search_min_2(t_all_numbers *all_numbers);
-
-
-
-//for checking DELETE WHEN SUBMIT
-void	print_2d_array(char **array);
-void print_struct(t_all_numbers *all_numbers);
+void	push_down(t_all *all);
+void	move_a_to_b(t_all *all);
+void	sort_big(t_all *all);
+int		search_min(t_all *all);
+void	search_min_2(t_all *all);
 
 #endif

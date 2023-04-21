@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+         #
+#    By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:28:31 by mparasku          #+#    #+#              #
-#    Updated: 2023/03/17 15:55:30 by mishamakura      ###   ########.fr        #
+#    Updated: 2023/04/14 15:34:27 by mparasku         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,25 @@ COLOUR_END=\033[0m
 
 NAME = push_swap
 
+SRC = 	*.c
+
+OBJ = $(SRC:%.c=%.o)
+
 all:$(NAME)
 
-$(NAME):
+$(NAME):$(OBJ)
 	@cd printf && make all
 	@cc -g -Wall -Wextra -Werror *.c printf/libftprintf.a -o $(NAME)
 	@echo "$(COLOUR_GREEN)push_swap is done$(COLOUR_END)"
 	
 clean:
 	@cd printf && make clean
-	@rm -f push_swap
+	@rm -f $(OBJ)
 	@echo "$(COLOUR_RED)all objects and executable files have been deleted$(COLOUR_END)"
 
 fclean: clean
 	@cd printf && make fclean
+	@rm -f $(NAME) 
 	@echo "$(COLOUR_RED)all files have been deleted$(COLOUR_END)"
 
 re: fclean all

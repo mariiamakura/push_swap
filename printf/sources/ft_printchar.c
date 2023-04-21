@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:12:03 by mparasku          #+#    #+#             */
-/*   Updated: 2023/02/16 21:52:12 by mishamakura      ###   ########.fr       */
+/*   Updated: 2023/04/14 15:21:21 by mparasku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

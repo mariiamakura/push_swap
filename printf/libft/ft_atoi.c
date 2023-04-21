@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mishamakura <mishamakura@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:33:12 by mparasku          #+#    #+#             */
-/*   Updated: 2023/03/21 16:08:18 by mishamakura      ###   ########.fr       */
+/*   Updated: 2023/04/14 19:58:11 by mparasku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long long	ft_atoi(const char *str)
 {
-	int	neg;
+	int			neg;
 	long long	number;
-	int	i;
+	int			i;
 
 	neg = 1;
 	i = 0;

@@ -1,90 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_min.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/14 19:52:09 by mparasku          #+#    #+#             */
+/*   Updated: 2023/04/14 19:53:26 by mparasku         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int sort_ok(t_all_numbers *all_numbers)
+int	sort_ok(t_all *all)
 {
-    int i;
-    t_one_number *start;
+	int		i;
+	t_node	*start;
 
-    start = all_numbers->stack_a;
-    i = all_numbers->size_a - 1;
-    while(i > 0)
-    {
-        if (start->index > start->next->index)
-            return(0);
-        start = start->next;
-        i--;
-    }
-    //printf("this is sort ok\n");
-    //print_struct(all_numbers);
-    return(1);
+	start = all->stack_a;
+	i = all->size_a - 1;
+	while (i > 0)
+	{
+		if (start->index > start->next->index)
+			return (0);
+		start = start->next;
+		i--;
+	}
+	return (1);
 }
 
-/*void	three_sort_b(t_all_numbers *all_numbers)
+void	three_sort_a(t_all *all)
 {
-    int	a;
-    int	b;
-    int	c;
-    int	i;
+	int	a;
+	int	b;
+	int	c;
 
-    a = all_numbers->stack_b->index;
-    b = all_numbers->stack_b->next->index;
-    c = all_numbers->stack_b->previous->index;
-    i = all_numbers->size_b;
-    if (b > a && b > c)
-        rrb(all_numbers, 1);
-    else if (a > b && a > c)
-        rb(all_numbers, 1);
-    a = all_numbers->stack_b->index;
-    b = all_numbers->stack_b->next->index;
-    if (a > b)
-        sb(all_numbers, 1);
-    while (i-- > 0)
-    {
-        all_numbers->stack_b->flag = -1;
-        pa(all_numbers, 1);
-        ra(all_numbers, 1);
-    }
-}*/
-
-void    three_sort_a(t_all_numbers *all_numbers)
-{
-    int a;
-    int b;
-    int c;
-
-    a = all_numbers->stack_a->index;
-    b = all_numbers->stack_a->next->index;
-    c = all_numbers->stack_a->previous->index;
-    if (a > b && a > c)
-        ra(all_numbers, 1);
-    else if (b > a && b > c)
-        rra(all_numbers, 1);
-    a = all_numbers->stack_a->index;
-    b = all_numbers->stack_a->next->index;
-    if (a > b)
-        sa(all_numbers, 1);
+	a = all->stack_a->index;
+	b = all->stack_a->next->index;
+	c = all->stack_a->previous->index;
+	if (a > b && a > c)
+		ra(all, 1);
+	else if (b > a && b > c)
+		rra(all, 1);
+	a = all->stack_a->index;
+	b = all->stack_a->next->index;
+	if (a > b)
+		sa(all, 1);
 }
 
-void    five_sort(t_all_numbers *all_numbers)
+void	five_sort(t_all *all)
 {
-    while (all_numbers->size_a > 3)
-    {
-        a_median(all_numbers);
-        //print_struct(all_numbers);
-        //printf("min: %i\n", all_numbers->min);
-        if (all_numbers->stack_a->index == all_numbers->min)
-        {
-            pb(all_numbers, 1);
-            continue ;
-        }
-        if (where_is_min(all_numbers))
-            ra(all_numbers, 1);
-        else
-            rra(all_numbers, 1);
-    }
-    three_sort_a(all_numbers);
-    pa(all_numbers, 1);
-    pa(all_numbers, 1);
-    //print_struct(all_numbers);
+	while (all->size_a > 3)
+	{
+		a_median(all);
+		if (all->stack_a->index == all->min)
+		{
+			pb(all, 1);
+			continue ;
+		}
+		if (where_is_min(all))
+			ra(all, 1);
+		else
+			rra(all, 1);
+	}
+	three_sort_a(all);
+	pa(all, 1);
+	pa(all, 1);
 }
-

@@ -1,33 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_commands.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/14 19:40:08 by mparasku          #+#    #+#             */
+/*   Updated: 2023/04/14 19:40:25 by mparasku         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/*
-rra (reverse rotate a): Shift down all elements of stack a by 1.
-The last element becomes the first one.
-rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
-rrr : rra and rrb at the same time.*/
-
-void rra(t_all_numbers *all_numbers, int flag)
+void	rra(t_all *all, int flag)
 {
-    if (all_numbers->size_a > 1)
-        all_numbers->stack_a = all_numbers->stack_a->previous;
-    if (flag)
-        write(1, "rra\n", 4);
+	if (all->size_a > 1)
+		all->stack_a = all->stack_a->previous;
+	if (flag)
+		write(1, "rra\n", 4);
 }
 
-void    rrb(t_all_numbers *all_numbers, int flag)
+void	rrb(t_all *all, int flag)
 {
-    if (all_numbers->size_b > 1)
-        all_numbers->stack_b = all_numbers->stack_b->previous;
-    if (flag)
-        write(1, "rrb\n", 4);
+	if (all->size_b > 1)
+		all->stack_b = all->stack_b->previous;
+	if (flag)
+		write(1, "rrb\n", 4);
 }
 
-void rrr(t_all_numbers *all_numbers, int flag)
+void	rrr(t_all *all, int flag)
 {
-    if (all_numbers->size_b > 1 && all_numbers->size_a > 1) {
-        rra(all_numbers, 0);
-        rrb(all_numbers, 0);
-        if (flag)
-            write(1, "rrr\n", 4);
-    }
+	if (all->size_b > 1 && all->size_a > 1)
+	{
+		rra(all, 0);
+		rrb(all, 0);
+		if (flag)
+			write(1, "rrr\n", 4);
+	}
 }
